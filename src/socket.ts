@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client';
 
-const URL = 'http://localhost:7524';
+const URL = 'https://reaction-be-production.up.railway.app';
 
 export const socket = io(URL);
 
