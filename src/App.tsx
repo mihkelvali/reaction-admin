@@ -6,10 +6,11 @@ function App() {
   const [isAnsweringOpen, setIsAnsweringOpen] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [team, setTeam] = useState<string | null>(null);
+  const URL = 'https://reaction-be-production.up.railway.app'
   
   
   const toggleAnswering = async () => {
-    const response = await fetch('http://localhost:7523/toggle', {
+    const response = await fetch(`${URL}/toggle`, {
       method: 'PUT'
     }).then(res => res.json());
     setIsAnsweringOpen(response.isAnsweringOpen);
@@ -18,7 +19,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://localhost:7523/toggle').then(res => res.json());
+      const response = await fetch(`${URL}/toggle`).then(res => res.json());
       setIsAnsweringOpen(response.isAnsweringOpen);
       console.log(isAnsweringOpen);
     })();
